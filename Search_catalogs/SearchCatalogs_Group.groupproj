@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{1E5D9EDA-7A76-498F-B9CF-A553CD5A726A}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="WBCatalogsSearch.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="test\Project1.dproj">
+				<Dependencies>WBCatalogsSearch.dproj</Dependencies>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="WBCatalogsSearch">
+			<MSBuild Projects="WBCatalogsSearch.dproj"/>
+		</Target>
+		<Target Name="WBCatalogsSearch:Clean">
+			<MSBuild Targets="Clean" Projects="WBCatalogsSearch.dproj"/>
+		</Target>
+		<Target Name="WBCatalogsSearch:Make">
+			<MSBuild Targets="Make" Projects="WBCatalogsSearch.dproj"/>
+		</Target>
+		<Target DependsOnTargets="WBCatalogsSearch" Name="Project1">
+			<MSBuild Projects="test\Project1.dproj"/>
+		</Target>
+		<Target DependsOnTargets="WBCatalogsSearch:Clean" Name="Project1:Clean">
+			<MSBuild Targets="Clean" Projects="test\Project1.dproj"/>
+		</Target>
+		<Target DependsOnTargets="WBCatalogsSearch:Make" Name="Project1:Make">
+			<MSBuild Targets="Make" Projects="test\Project1.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="WBCatalogsSearch;Project1"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="WBCatalogsSearch:Clean;Project1:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="WBCatalogsSearch:Make;Project1:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009.10.01 11:38:19.519.groupproj,C:\Documents and Settings\compaq\Мои документы\RAD Studio\Projects\ProjectGroup1.groupproj=F:\delphi-work\Компонент Catalogs\ProjectGroup1.groupproj</Transaction>
+    <Transaction>2009.10.02 13:44:53.390.groupproj,F:\delphi-work\Компонент Catalogs\ProjectGroup1.groupproj=F:\delphi-work\Компонент Catalogs\SearchCatalogs_Group.groupproj</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="Project1.exe"/>
+	</Default.Personality>
+</BorlandProject>
